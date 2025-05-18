@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+/* Theme transition handling */
+:root {
+  --theme-transition-duration: 200ms;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+:root:not(.theme-transitioning) * {
+  transition: background-color var(--theme-transition-duration) ease-in-out,
+              border-color var(--theme-transition-duration) ease-in-out,
+              color var(--theme-transition-duration) ease-in-out;
+}
+
+/* Prevent theme flash */
+.theme-transitioning * {
+  transition: none !important;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+} 
