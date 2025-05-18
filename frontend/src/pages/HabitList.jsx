@@ -17,7 +17,7 @@ export default function HabitList() {
 
   const fetchHabits = async () => {
     try {
-      const response = await axios.get('/api/habits');
+      const response = await axios.get('https://habitvault-backend-js12.onrender.com/api/habits');
       setHabits(response.data);
       setLoading(false);
     } catch (error) {
@@ -32,7 +32,7 @@ export default function HabitList() {
       const localDate = new Date(date);
       localDate.setHours(0, 0, 0, 0);
       
-      const response = await axios.post(`/api/habits/${habitId}/check-in`, {
+      const response = await axios.post(`https://habitvault-backend-js12.onrender.com/api/habits/${habitId}/check-in`, {
         date: localDate.toISOString(),
         status: status === 'unmarked' || status === null ? null : status
       });

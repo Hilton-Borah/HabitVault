@@ -52,7 +52,7 @@ export default function NewHabit() {
     setIsSubmitting(true);
 
     try {
-      await axios.post('/api/habits', {
+      await axios.post('https://habitvault-backend-js12.onrender.com/api/habits', {
         name: formData.name,
         description: formData.description,
         targetDays: formData.targetDays,

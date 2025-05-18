@@ -24,7 +24,7 @@ export default function Settings() {
 
     setIsUpdating(true);
     try {
-      await axios.put('/api/auth/change-password', {
+      await axios.put('https://habitvault-backend-js12.onrender.com/api/auth/change-password', {
         currentPassword: formData.currentPassword,
         newPassword: formData.newPassword
       });

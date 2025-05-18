@@ -114,12 +114,13 @@ const Register = () => {
           duration: 3000,
           position: 'top-center'
         });
+        // alert('Registration successful! Please log in.');
         navigate('/login');
       }
     } catch (error) {
-      // console.error('Registration error:', error);
+  alert('Soemthing went wrong. Please try again.');
       console.log(error)
-      toast.error(error, {
+      toast.error(error.message, {
         duration: 4000,
         position: 'top-center'
       });
@@ -300,6 +301,7 @@ const Register = () => {
           </div>
         </form>
       </div>
+      
     </div>
   );
 };

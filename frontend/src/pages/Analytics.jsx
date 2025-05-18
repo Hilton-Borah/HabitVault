@@ -16,7 +16,7 @@ export default function Analytics() {
 
   const fetchHabits = async () => {
     try {
-      const response = await api.get('/api/habits');
+      const response = await api.get('https://habitvault-backend-js12.onrender.com/api/habits');
       setHabits(response.data);
     } catch (error) {
       console.error('Error fetching habits:', error);

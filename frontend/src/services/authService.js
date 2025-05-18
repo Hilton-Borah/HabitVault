@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth'; // Update this with your actual backend API URL
+const API_URL = 'https://habitvault-backend-js12.onrender.com/api/auth'; // Update this with your actual backend API URL
 
 const authService = {
   login: async (credentials) => {

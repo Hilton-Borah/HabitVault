@@ -14,7 +14,7 @@ const authStore = create(
       login: async (email, password) => {
         set({ isLoading: true, error: null });
         try {
-          const response = await axios.post('/api/auth/login', { email, password });
+          const response = await axios.post('https://habitvault-backend-js12.onrender.com/api/auth/login', { email, password });
           const { token, user } = response.data;
           
           // Set auth header for future requests
@@ -34,7 +34,7 @@ const authStore = create(
       register: async (name, email, password) => {
         set({ isLoading: true, error: null });
         try {
-          const response = await axios.post('/api/auth/register', {
+          const response = await axios.post('https://habitvault-backend-js12.onrender.com/api/auth/register', {
             name,
             email,
             password

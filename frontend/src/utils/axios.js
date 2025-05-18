@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create axios instance with custom config
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000', // Default to localhost if no env variable
+  baseURL: import.meta.env.VITE_API_URL || 'https://habitvault-backend-js12.onrender.com', // Default to localhost if no env variable
   headers: {
     'Content-Type': 'application/json',
   },

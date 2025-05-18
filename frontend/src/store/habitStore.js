@@ -88,7 +88,7 @@ const habitStore = create((set, get) => ({
   fetchHabits: async () => {
     set({ isLoading: true });
     try {
-      const response = await axios.get('/api/habits');
+      const response = await axios.get('https://habitvault-backend-js12.onrender.com/api/habits');
       // Calculate streaks for each habit
       const habitsWithStreaks = response.data.map(get().updateStreaks);
       set({ habits: habitsWithStreaks, isLoading: false });
@@ -103,7 +103,7 @@ const habitStore = create((set, get) => ({
   createHabit: async (habitData) => {
     set({ isLoading: true });
     try {
-      const response = await axios.post('/api/habits', habitData);
+      const response = await axios.post('https://habitvault-backend-js12.onrender.com/api/habits', habitData);
       const habitWithStreaks = get().updateStreaks(response.data);
       set(state => ({
         habits: [...state.habits, habitWithStreaks],
@@ -122,7 +122,7 @@ const habitStore = create((set, get) => ({
   updateHabit: async (habitId, habitData) => {
     set({ isLoading: true });
     try {
-      const response = await axios.put(`/api/habits/${habitId}`, habitData);
+      const response = await axios.put(`https://habitvault-backend-js12.onrender.com/api/habits/${habitId}`, habitData);
       const habitWithStreaks = get().updateStreaks(response.data);
       set(state => ({
         habits: state.habits.map(h => h._id === habitId ? habitWithStreaks : h),
@@ -141,7 +141,7 @@ const habitStore = create((set, get) => ({
   deleteHabit: async (habitId) => {
     set({ isLoading: true });
     try {
-      await axios.delete(`/api/habits/${habitId}`);
+      await axios.delete(`https://habitvault-backend-js12.onrender.com/api/habits/${habitId}`);
       set(state => ({
         habits: state.habits.filter(h => h._id !== habitId),
         isLoading: false
@@ -159,7 +159,7 @@ const habitStore = create((set, get) => ({
   checkIn: async (habitId, date, status) => {
     set({ isLoading: true });
     try {
-      const response = await axios.post(`/api/habits/${habitId}/check-in`, {
+      const response = await axios.post(`https://habitvault-backend-js12.onrender.com/api/habits/${habitId}/check-in`, {
         date,
         status
       });
@@ -187,7 +187,7 @@ const habitStore = create((set, get) => ({
 
   fetchStats: async () => {
     try {
-      const response = await axios.get('/api/analytics/stats');
+      const response = await axios.get('https://habitvault-backend-js12.onrender.com/api/analytics/stats');
       set({ stats: response.data });
       return response.data;
     } catch (error) {
@@ -198,7 +198,7 @@ const habitStore = create((set, get) => ({
 
   fetchTrends: async (timeRange = 'week') => {
     try {
-      const response = await axios.get(`/api/analytics/trends?timeRange=${timeRange}`);
+      const response = await axios.get(`https://habitvault-backend-js12.onrender.com/api/analytics/trends?timeRange=${timeRange}`);
       set({ trends: response.data });
       return response.data;
     } catch (error) {
@@ -209,7 +209,7 @@ const habitStore = create((set, get) => ({
 
   fetchRankings: async () => {
     try {
-      const response = await axios.get('/api/analytics/ranking');
+      const response = await axios.get('https://habitvault-backend-js12.onrender.com/api/analytics/ranking');
       set({ rankings: response.data });
       return response.data;
     } catch (error) {
